@@ -1,5 +1,4 @@
-````markdown
-# Multi-Agent Bot with FastMCP and Kubernetes (KinD)
+## Multi-Agent Bot with FastMCP and Kubernetes (KinD)
 
 An extensible and scalable multi-agent AI bot system leveraging LangChain, FastMCP, and deployed on a local Kubernetes cluster using KinD. This system now supports dynamic registration of Discord and Telegram bots based on API keys provided at agent creation.
 
@@ -79,9 +78,10 @@ graph TD
             Discord_MCP_SVC
         end
     end
-````
+    
+```
 
-* **bot-api**: Core agent application using LangChain, responsible for agent creation, management, and orchestrating interactions.
+* **bot-api**: Core agent application using Langgraph, responsible for agent creation, management, and orchestrating interactions.
 * **fastmcp-core-server**: Central registry for all available MCP tools.
 
 **Specialized MCPs:**
@@ -127,7 +127,7 @@ graph TD
 
    * `BOT_API_BASE_URL`: The URL where your MCP servers can reach your bot-api (e.g., `http://localhost:8000` for local development).
 
-   > **Note:** Discord and Telegram bot tokens/API keys are now provided when you create/update an agent via the bot-api's `/agents/create` or `/agents/update` endpoints, not directly in the `.env` for the bot-api itself. However, if you are running MCPs locally, they might still need some of these in their own `.env` files or passed via environment variables. For Kubernetes, these will be managed via `k8s/secrets.yaml`.
+   > **Note:** Discord and Telegram bot tokens/API keys are provided when you create/update an agent via the bot-api's `/agents/create` or `/agents/update` endpoints, not directly in the `.env` for the bot-api itself. However, if you are running MCPs locally, they might still need some of these in their own `.env` files or passed via environment variables. For Kubernetes, these will be managed via `k8s/secrets.yaml`.
 
 3. **Install Dependencies**
 
@@ -350,11 +350,4 @@ multi-agent-bot/
 
 Contributions are welcome! Please fork the repository, create a feature branch, and submit a pull request.
 
----
-
-📄 ## License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
-
-```
 ```
