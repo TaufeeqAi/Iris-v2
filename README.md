@@ -43,42 +43,8 @@ An extensible and scalable multi-agent AI bot system leveraging LangChain, FastM
 - **Automated Scripts**  
   Bash scripts to build images and deploy to KinD, and to set up Telegram webhooks.  
 
----
+```
 
-🏛️ ## Architecture Overview
-
-```mermaid
-graph TD
-    User -->|Discord/Telegram| Platform_MCPs
-    Platform_MCPs -->|Forward Message (with bot_id)| Bot_API
-    Bot_API -->|Discover/Invoke Tools| FastMCP_Core
-    FastMCP_Core -->|Tool Calls| Specialized_MCPs
-    Specialized_MCPs -->|External APIs| External_Services
-    Specialized_MCPs -->|ChromaDB Data| Persistent_Volume
-    Bot_API -->|Send Reply| Platform_MCPs
-    Platform_MCPs -->|Reply| User
-
-    subgraph "KinD Cluster"
-        subgraph Pods
-            Bot_API
-            FastMCP_Core
-            Web_MCP
-            Finance_MCP
-            RAG_MCP
-            Telegram_MCP
-            Discord_MCP
-        end
-        subgraph Services
-            Bot_API_SVC
-            FastMCP_Core_SVC
-            Web_MCP_SVC
-            Finance_MCP_SVC
-            RAG_MCP_SVC
-            Telegram_MCP_SVC
-            Discord_MCP_SVC
-        end
-    end
-    
 ```
 
 * **bot-api**: Core agent application using Langgraph, responsible for agent creation, management, and orchestrating interactions.
